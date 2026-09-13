@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
-  <title id="title">Dyev</title>
-  <rect width="64" height="64" rx="12" fill="#091322"/>
-  <path fill="#d6dbe0" d="M12 11h18c14 0 23 8.2 23 21s-9 21-23 21H12V11Zm12 10v22h5.2c7 0 11.8-4 11.8-11s-4.8-11-11.8-11H24Z"/>
-  <path fill="#e6b751" d="m27 20 2.3 6.1 6.2 2.3-6.2 2.3L27 36.8l-2.3-6.1-6.2-2.3 6.2-2.3L27 20Z"/>
-  <path fill="#1976ff" d="m48 19 9-11-4.1 12.1-7.7 8.3L48 19Z"/>
-</svg>
