@@ -14,7 +14,7 @@ const navigation = [
 function BrandLogo({ footer = false }: { footer?: boolean }) {
   return (
     <Link className={`brand-logo${footer ? " brand-logo-footer" : ""}`} href="/" aria-label="Dyev home">
-      <img src="/brand/dyev-wordmark-transparent.png" alt="Dyev" />
+      <img src="/brand/dyev-wordmark-light.png" alt="Dyev" />
     </Link>
   );
 }
