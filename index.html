@@ -3,19 +3,35 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Dyev. Ideas becoming things.">
-    <title>Dyev</title>
+    <meta name="description" content="Dyev is a studio for ideas that become useful things.">
+    <title>Dyev | Ideas become things</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <header class="site-header">
+      <a class="wordmark" href="/" aria-label="Dyev home"><img src="dyev-wordmark-midnight.png" alt="Dyev"></a>
+      <nav aria-label="Main navigation"><a href="#work">What we make</a><a href="manifesto.html">Manifesto</a><a href="projects.html">Projects</a></nav>
+      <a class="header-mark" href="mailto:hello@dyev.in">Begin <span aria-hidden="true">&#8599;</span></a>
+    </header>
     <main>
-      <div class="grid" aria-hidden="true"></div>
-      <section class="center">
-        <img src="dyev-wordmark-midnight.png" alt="Dyev">
-        <p><span>ideas</span><i>/</i><span>systems</span><i>/</i><span>becoming</span></p>
+      <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-image" src="assets/dyev-kinetic-hero.png" alt="A chrome and blue-glass structure moving forward">
+        <div class="hero-copy" data-reveal>
+          <p class="kicker">Independent studio / India</p>
+          <h1 id="hero-title">Make the<br><em>next</em> thing real.</h1>
+          <p class="hero-detail">Dyev builds its own products, systems, ventures and useful experiments.</p>
+        </div>
+        <div class="hero-coordinate" aria-hidden="true">18.5204 / 73.8567<br>BUILD / TEST / BECOME</div>
+        <a class="scroll-cue" href="#work">Scroll to enter <span aria-hidden="true">&#8595;</span></a>
       </section>
-      <small>dyev.in</small>
+      <section class="ticker" aria-label="Dyev principles"><div><span>Own the question</span><b>&#10022;</b><span>Build the system</span><b>&#10022;</b><span>Ship the object</span><b>&#10022;</b><span>Keep becoming</span><b>&#10022;</b><span>Own the question</span><b>&#10022;</b><span>Build the system</span></div></section>
+      <section id="work" class="statement section-shell"><p class="section-label">01 / A working point of view</p><div class="statement-grid" data-reveal><h2>Not a holding page.<br>A starting signal.</h2><p>We are here to turn restlessness into things with shape: software, businesses, media, tools, and whatever else earns its place in the world. The output matters. So does learning how to make it.</p></div></section>
+      <section class="object-section"><div class="object-copy section-shell" data-reveal><p class="section-label">02 / The material of a new idea</p><h2>Build a proof.<br>Then build a world around it.</h2><a class="text-link" href="manifesto.html">Read the manifesto <span aria-hidden="true">&#8594;</span></a></div><figure><img src="assets/dyev-prototypes.png" alt="Silver, blue and gold prototype objects on a technical workbench"><figcaption>Prototypes are promises with edges.</figcaption></figure></section>
+      <section class="signals section-shell" data-reveal><p class="section-label">03 / Fields of play</p><div class="signal-list"><a href="projects.html"><span>01</span><strong>Digital products</strong><i>Tools with a real job to do</i><b>&#8599;</b></a><a href="projects.html"><span>02</span><strong>New ventures</strong><i>Small starts with room to compound</i><b>&#8599;</b></a><a href="projects.html"><span>03</span><strong>Useful systems</strong><i>Better ways for people and work to move</i><b>&#8599;</b></a><a href="projects.html"><span>04</span><strong>Experiments</strong><i>Questions worth making visible</i><b>&#8599;</b></a></div></section>
+      <section class="closing" data-reveal><p>Ideas do not become things<br>by staying <em>ideas.</em></p><a href="mailto:hello@dyev.in">Say hello <span aria-hidden="true">&#8599;</span></a></section>
     </main>
+    <footer class="site-footer"><a class="wordmark footer-mark" href="/"><img src="dyev-wordmark-midnight.png" alt="Dyev"></a><p>Ideas / systems / becoming</p><small>&copy; <span id="year"></span> Dyev. Built from the inside out.</small></footer>
+    <script src="site.js"></script>
   </body>
 </html>
