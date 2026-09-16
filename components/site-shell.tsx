@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Moon, Sun, X, ArrowUpRight, Copy, Check } from "lucide-react";
+import { Menu, MoonStar, SunMedium, X, ArrowUpRight, Copy, Check } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 
@@ -12,7 +12,7 @@ function ThemeToggle() {
   useEffect(() => { setTheme(document.documentElement.dataset.theme === "dark" ? "dark" : "light"); }, []);
   function change(next: "light" | "dark") { setTheme(next); document.documentElement.dataset.theme = next; document.documentElement.style.colorScheme = next; localStorage.setItem("dyev-theme", next); }
   const nextTheme = theme === "light" ? "dark" : "light";
-  return <div className="theme-toggle"><button type="button" onClick={() => change(nextTheme)} aria-label={`Switch to ${nextTheme} theme`} title={`Switch to ${nextTheme} theme`}>{theme === "light" ? <Moon aria-hidden="true" /> : <Sun aria-hidden="true" />}</button></div>;
+  return <div className="theme-toggle"><button className="theme-icon-button" type="button" onClick={() => change(nextTheme)} aria-label={`Switch to ${nextTheme} theme`}>{theme === "light" ? <MoonStar aria-hidden="true" /> : <SunMedium aria-hidden="true" />}</button></div>;
 }
 
 function Wordmark() { return <Link className="wordmark" href="/" aria-label="Dyev home">Dyev<span aria-hidden="true" /></Link>; }

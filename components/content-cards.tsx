@@ -6,10 +6,14 @@ import { formatDate, readingTime } from "@/lib/content";
 
 export function StatusBadge({ status }: { status: Product["status"] | LabEntry["status"] }) { return <span className={`status-badge status-${status.toLowerCase().replaceAll(" ", "-")}`}><i aria-hidden="true" />{status}</span>; }
 
+export function ElectricalPreview() {
+  return <div className="product-preview electrical-preview"><div className="electrical-preview-heading"><strong>Electrical.Dyev</strong><span>Preliminary tools</span></div><div className="electrical-preview-tools"><span>kW ↔ amps</span><span>Voltage drop</span><span>Cable candidates</span><span>Load schedule</span></div><p>Visible formulas · browser-private projects · preliminary only</p></div>;
+}
+
 export function ProductCard({ product }: { product: Product }) {
   const href = product.slug === "electricaldyev" ? "/products/electricaldyev/" : "/lab/";
   const label = product.slug === "electricaldyev" ? "Explore product" : "View in the Lab";
-  return <article className={`product-card ${product.slug === "electricaldyev" ? "product-card-electrical" : ""}`}><div className="product-card-top"><StatusBadge status={product.status} /><span>{product.category}</span></div><Link href={href} className="card-visual-link" aria-label={`View ${product.name}`}>{product.slug === "electricaldyev" ? <div className="product-preview" aria-hidden="true"><strong>Electrical.Dyev</strong><div><span>Power</span><span>Cable</span><span>Voltage drop</span></div><p>Transparent inputs · visible working · browser-local project</p></div> : <div className="abstract-panel"><span>{product.slug === "boq-workspace" ? "01 / scope → quantity → estimate" : "Ideas in progress"}</span></div>}</Link><h2><Link href={href}>{product.name}</Link></h2><p>{product.summary}</p><Link href={href} className="text-link">{label}<ArrowRight aria-hidden="true" /></Link></article>;
+  return <article className={`product-card ${product.slug === "electricaldyev" ? "product-card-electrical" : ""}`}><div className="product-card-top"><StatusBadge status={product.status} /><span>{product.category}</span></div><Link href={href} className="card-visual-link" aria-label={`View ${product.name}`}>{product.slug === "electricaldyev" ? <ElectricalPreview /> : <div className="abstract-panel"><span>{product.slug === "boq-workspace" ? "01 / scope → quantity → estimate" : "Ideas in progress"}</span></div>}</Link><h2><Link href={href}>{product.name}</Link></h2><p>{product.summary}</p><Link href={href} className="text-link">{label}<ArrowRight aria-hidden="true" /></Link></article>;
 }
 
 export function ArticleCard({ article, compact = false }: { article: Article; compact?: boolean }) {
