@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound() { return <section className="section"><div className="shell"><p className="eyebrow">Not found</p><h1 style={{ fontSize: "clamp(42px, 5vw, 64px)", letterSpacing: "-.05em" }}>This page is not here.</h1><p className="lead" style={{ color: "var(--ink-muted)" }}>It may have moved, or it may never have been part of Dyev.</p><Link className="button button-primary" href="/">Return home</Link></div></section>; }

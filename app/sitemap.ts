@@ -1,0 +1,4 @@
+import type { MetadataRoute } from "next";
+import { articles } from "@/lib/content";
+const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://dyev.in";
+export default function sitemap(): MetadataRoute.Sitemap { const routes = ["/", "/products/", "/products/electricaldyev/", "/articles/", "/lab/", "/about/", "/contact/", "/privacy/", "/terms/", "/disclaimer/"]; return [...routes.map((route) => ({ url: new URL(route, base).toString(), lastModified: new Date("2026-09-16"), changeFrequency: "monthly" as const, priority: route === "/" ? 1 : route === "/articles/" || route === "/products/" ? 0.8 : 0.6 })), ...articles.map((article) => ({ url: new URL(`/articles/${article.slug}/`, base).toString(), lastModified: new Date(article.publishedAt), changeFrequency: "monthly" as const, priority: 0.7 }))]; }

@@ -1,0 +1,7 @@
+import type { Metadata } from "next";
+import { ArticleGrid } from "@/components/filter-grids";
+import { ArticleCard } from "@/components/content-cards";
+import { articles } from "@/lib/content";
+
+export const metadata: Metadata = { title: "Articles", description: "Practical observations on product design, engineering, workflow design, and building useful tools.", alternates: { canonical: "/articles/" }, openGraph: { title: "Articles | Dyev", description: "Practical observations on product design, engineering, workflow design, and building useful tools.", url: "/articles/" }, twitter: { card: "summary_large_image", title: "Articles | Dyev", description: "Practical observations on product design, engineering, workflow design, and building useful tools." } };
+export default function ArticlesPage() { const [featured,...rest] = articles; return <><section className="page-hero"><div className="shell"><p className="eyebrow">Studio journal & observations</p><h1>Notes from the work.</h1><p className="lead">Practical observations on engineering tools, product design, working methods, and the ideas we are still figuring out.</p></div></section><section className="section"><div className="shell"><div className="section-heading"><div><p className="eyebrow">Featured article</p><h2>One useful thought, properly examined.</h2></div></div><ArticleCard article={featured} /><ArticleGrid articles={rest} /></div></section></>; }
