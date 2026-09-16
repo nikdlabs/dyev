@@ -15,7 +15,7 @@ export type ArticleBlock = { type: "heading" | "paragraph" | "quote" | "callout"
 export type Article = { slug: string; category: string; title: string; description: string; publishedAt: string; image: string; imageAlt: string; relatedProduct?: boolean; blocks: ArticleBlock[] };
 
 export const products: Product[] = [
-  { slug: "electricaldyev", name: "ElectricalDyev", status: "Live", category: "Engineering", summary: "Transparent electrical calculation tools for preliminary engineering workflows.", description: "Practical calculators, supporting articles, and a browser-private project workspace designed for transparent, traceable workflows.", href: "https://electrical.dyev.in/" },
+  { slug: "electricaldyev", name: "Electrical.Dyev", status: "Live", category: "Engineering", summary: "Transparent electrical calculation tools for preliminary engineering workflows.", description: "Practical calculators, supporting articles, and a browser-private project workspace designed for transparent, traceable workflows.", href: "https://electrical.dyev.in/" },
   { slug: "boq-workspace", name: "BOQ / Estimation Workspace", status: "In development", category: "Workflows", summary: "Structured quantity, scope, and estimation workflows for project teams.", description: "A product study into clearer project information, quantity, and scope workflows. It is not yet a released product." },
   { slug: "product-lab", name: "Product Lab", status: "Exploring", category: "Experiments", summary: "Prototypes, studies, and practical questions in progress.", description: "A place to examine early product ideas before they are ready to become standalone tools." },
 ];
