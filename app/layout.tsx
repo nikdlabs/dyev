@@ -7,12 +7,12 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://dyev.in";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "Dyev | Build useful things", template: "%s | Dyev" },
+  title: { default: "Dyev | Build with clarity", template: "%s | Dyev" },
   description: "Dyev is an independent product studio creating practical digital tools, software products, and experiments.",
   alternates: { canonical: "/" },
   verification: process.env.PUBLIC_GOOGLE_SITE_VERIFICATION ? { google: process.env.PUBLIC_GOOGLE_SITE_VERIFICATION } : undefined,
-  openGraph: { type: "website", siteName: "Dyev", title: "Dyev | Build useful things", description: "Practical digital tools, software products, and experiments.", images: [{ url: "/images/dyev/hero-ribbon.jpg", width: 1448, height: 1086, alt: "A cobalt-blue ribbon passing through a graphite grid" }] },
-  twitter: { card: "summary_large_image", title: "Dyev | Build useful things", description: "Practical digital tools, software products, and experiments.", images: ["/images/dyev/hero-ribbon.jpg"] },
+  openGraph: { type: "website", siteName: "Dyev", title: "Dyev | Build with clarity", description: "Practical digital tools, software products, and experiments.", images: [{ url: "/images/dyev/hero-ribbon.jpg", width: 1448, height: 1086, alt: "A cobalt-blue ribbon passing through a graphite grid" }] },
+  twitter: { card: "summary_large_image", title: "Dyev | Build with clarity", description: "Practical digital tools, software products, and experiments.", images: ["/images/dyev/hero-ribbon.jpg"] },
   icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }, { url: "/favicon-48.png", sizes: "48x48", type: "image/png" }], apple: "/apple-touch-icon.png" },
   manifest: "/site.webmanifest",
 };
