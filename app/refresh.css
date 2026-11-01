@@ -305,14 +305,10 @@ html[data-theme='dark'] .sentinel-solution { background: #1d2b3b; }
 .site-header, .site-header.is-scrolled { position: sticky; top: 0; z-index: 30; height: 82px; border: 0; background: transparent; box-shadow: none; backdrop-filter: none; pointer-events: none; }
 .site-header-inner { position: relative; top: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; width: min(1320px, calc(100% - (var(--page-gutter) * 2))); height: 82px; margin-inline: auto; padding: 0; border: 1px solid transparent; border-radius: 0; background: transparent; pointer-events: auto; transition: width .55s cubic-bezier(.22,1,.36,1), height .55s cubic-bezier(.22,1,.36,1), top .55s cubic-bezier(.22,1,.36,1), padding .55s cubic-bezier(.22,1,.36,1), border-radius .55s cubic-bezier(.22,1,.36,1), border-color .45s, background .45s, box-shadow .45s; }
 .site-header.is-scrolled .site-header-inner { top: 10px; width: min(990px, calc(100% - (var(--page-gutter) * 2))); height: 62px; padding: 0 11px; border-color: color-mix(in srgb, var(--blue) 22%, var(--line)); border-radius: 99px; background: color-mix(in srgb, var(--surface) 95%, transparent); box-shadow: 0 16px 48px color-mix(in srgb, var(--ink) 16%, transparent), 0 2px 8px color-mix(in srgb, var(--blue) 9%, transparent); backdrop-filter: blur(24px) saturate(1.25); }
-.header-brand { display: inline-flex; align-items: center; justify-self: start; gap: 10px; min-width: 0; font-size: 21px; font-weight: 700; letter-spacing: -.055em; }
-.header-brand-symbol { position: relative; display: grid; width: 40px; height: 40px; flex: none; place-items: center; overflow: hidden; border: 1px solid color-mix(in srgb, var(--blue) 35%, var(--line)); border-radius: 14px; background: var(--blue-soft); color: var(--blue); transform: rotate(-8deg); transition: border-radius .45s, transform .55s cubic-bezier(.22,1,.36,1), background .45s, color .45s, box-shadow .45s; }
-.header-brand-symbol > span { position: relative; z-index: 1; font-size: 24px; line-height: 1; transform: rotate(8deg); transition: transform .55s; }
-.header-brand-symbol i { position: absolute; right: 4px; bottom: 4px; width: 5px; height: 5px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 13%, transparent); }
-.header-brand:hover .header-brand-symbol { transform: rotate(0deg) translateY(-2px); }
-.header-brand-name { transition: opacity .35s, max-width .45s; max-width: 80px; overflow: hidden; }
-.site-header.is-scrolled .header-brand-symbol { border-radius: 50%; background: #246bfd; color: #fff; transform: rotate(0deg); box-shadow: 0 5px 14px #246bfd40; }
-.site-header.is-scrolled .header-brand-symbol > span { transform: rotate(0deg); }
+.site-header .wordmark { justify-self: start; }
+.site-header .wordmark span { transition: transform .3s ease, box-shadow .3s ease; }
+.site-header .wordmark:hover span { transform: translateY(-2px) scale(1.2); box-shadow: 0 0 0 6px color-mix(in srgb, var(--blue) 15%, transparent); }
+.site-header.is-scrolled .wordmark span { animation: wordmark-dot 3.2s ease-in-out infinite; }
 .desktop-nav { display: flex; align-items: center; justify-self: center; gap: 5px; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
 .desktop-nav a { position: relative; padding: 11px 14px; border: 0; border-radius: 99px; color: var(--ink-muted); font-size: 14px; font-weight: 550; white-space: nowrap; transition: color .25s, background .25s, transform .25s; }
 .desktop-nav a::after { position: absolute; right: 22%; bottom: 6px; left: 22%; height: 2px; border-radius: 99px; background: var(--blue); content: ""; transform: scaleX(0); transition: transform .28s ease; }
@@ -442,6 +438,7 @@ html[data-theme='dark'] .sentinel-solution { background: #1d2b3b; }
 @keyframes rule-sweep { 0%, 15% { transform: translateX(-120%); opacity: 0; } 35% { opacity: .8; } 80%, 100% { transform: translateX(480%); opacity: 0; } }
 @keyframes row-breathe { 50% { background: #d0e0f7; } }
 @keyframes wire-glow { to { opacity: .45; } }
+@keyframes wordmark-dot { 50% { transform: scale(1.16); box-shadow: 0 0 0 5px color-mix(in srgb, var(--blue) 12%, transparent); } }
 
 @keyframes rise-in { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes core-float { 50% { transform: translate(-50%, -53%) rotate(-8deg); } }
@@ -582,11 +579,6 @@ html[data-theme='dark'] .sentinel-solution { background: #1d2b3b; }
   .site-header-inner { display: flex; width: calc(100% - (var(--page-gutter) * 2)); height: 72px; }
   .site-header.is-scrolled .site-header-inner, .site-header.menu-open .site-header-inner { top: 8px; width: calc(100% - 24px); height: 55px; padding: 0 8px; }
   .site-header.menu-open .site-header-inner { border-color: color-mix(in srgb, var(--blue) 22%, var(--line)); border-radius: 99px; background: color-mix(in srgb, var(--surface) 95%, transparent); box-shadow: 0 16px 48px color-mix(in srgb, var(--ink) 16%, transparent); backdrop-filter: blur(24px); }
-  .header-brand { font-size: 20px; }
-  .header-brand-symbol { width: 36px; height: 36px; border-radius: 12px; }
-  .header-brand-symbol > span { font-size: 22px; }
-  .site-header.menu-open .header-brand-symbol { border-radius: 50%; background: #246bfd; color: #fff; transform: rotate(0deg); }
-  .site-header.menu-open .header-brand-symbol > span { transform: rotate(0deg); }
   .header-actions { margin-left: auto; }
   .desktop-nav, .header-contact { display: none; }
   .menu-button { display: grid; width: 39px; height: 39px; border-radius: 13px; background: color-mix(in srgb, var(--surface) 74%, transparent); transition: border-radius .4s, transform .25s, background .25s; }
@@ -611,9 +603,6 @@ html[data-theme='dark'] .sentinel-solution { background: #1d2b3b; }
   .about-story p { grid-column: 1; }
 }
 @media (max-width: 650px) {
-  .header-brand-name { font-size: 19px; }
-  .site-header.is-scrolled .header-brand-symbol { width: 34px; height: 34px; }
-  .site-header.is-scrolled .header-brand-name { max-width: 58px; }
   .mobile-sheet { padding: 20px 20px 28px; }
   .mobile-sheet nav a { font-size: clamp(26px, 7vw, 33px); }
   .new-hero { padding-top: 35px; padding-bottom: 70px; }
@@ -663,6 +652,7 @@ html[data-theme='dark'] .sentinel-solution { background: #1d2b3b; }
   .new-hero-copy, .hero-system, .hero-core, .hero-orbit, .hero-satellite, .lab-node, .ai-signal span, .sentinel-ring, .sentinel-pulse { animation: none !important; }
   .scroll-progress { display: none; }
   .products-motion-ring, .products-motion-core, .products-motion-dot, .product-showcase .product-schematic, .product-showcase .tutor-concept, .product-showcase .schematic-rule::after, .product-showcase .tutor-concept-rows i, .labs-graphic .lab-wire { animation: none !important; }
-  .site-header-inner, .header-brand-symbol, .header-brand-symbol > span, .desktop-nav a, .desktop-nav a::after, .header-contact, .header-contact span, .mobile-sheet, .menu-button, .header-progress { transition: none !important; }
+  .site-header-inner, .site-header .wordmark span, .desktop-nav a, .desktop-nav a::after, .header-contact, .header-contact span, .mobile-sheet, .menu-button, .header-progress { transition: none !important; }
+  .site-header .wordmark span { animation: none !important; }
   .header-progress { display: none; }
 }

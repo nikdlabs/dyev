@@ -28,8 +28,6 @@ function ThemeToggle() {
 
 function Wordmark() { return <Link className="wordmark" href="/" aria-label="Dyev home">Dyev<span aria-hidden="true" /></Link>; }
 
-function HeaderBrand() { return <Link className="header-brand" href="/" aria-label="Dyev home"><span className="header-brand-symbol" aria-hidden="true"><span>D</span><i /></span><span className="header-brand-name">Dyev</span></Link>; }
-
 export function CopyEmail() {
   const [copied, setCopied] = useState(false);
   async function copy() { try { await navigator.clipboard.writeText("hello@dyev.in"); setCopied(true); window.setTimeout(() => setCopied(false), 1800); } catch { window.location.href = "mailto:hello@dyev.in"; } }
@@ -46,7 +44,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
   return <>
     <ScrollMotion />
     <header className={"site-header" + (menuOpen ? " menu-open" : "")}><div className="site-header-inner">
-      <HeaderBrand />
+      <Wordmark />
       <nav className="desktop-nav" aria-label="Primary navigation">{navigation.map((item) => <Link key={item.href} href={item.href} className={path.startsWith(item.href) ? "is-active" : ""} aria-current={path.startsWith(item.href) ? "page" : undefined}>{item.label}</Link>)}</nav>
       <div className="header-actions"><ThemeToggle /><Link className="header-contact" href="/contact/" aria-label="Get in touch"><span>Get in touch</span><ArrowUpRight aria-hidden="true" /></Link><button type="button" className="menu-button" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button></div>
       <span className="header-progress" aria-hidden="true"><i /></span>
