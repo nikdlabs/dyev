@@ -6,6 +6,14 @@ export function TutorIllustration() {
   </div>;
 }
 
+export function ElectricalIllustration() {
+  return <div className="product-schematic" role="img" aria-label="Illustration of the Electrical.Dyev input, calculation, and review flow">
+    <div className="schematic-title">Electrical.Dyev</div>
+    <div className="schematic-steps"><span>01<br/><strong>Input</strong></span><i/><span>02<br/><strong>Calculate</strong></span><i/><span>03<br/><strong>Review</strong></span></div>
+    <div className="schematic-rule" />
+  </div>;
+}
+
 export function SentinelIllustration() {
   return <div className="sentinel-visual" role="img" aria-label="Abstract concept illustration for Sentinel, not a product screenshot">
     <div className="sentinel-ring ring-one"/><div className="sentinel-ring ring-two"/><div className="sentinel-center"><span>S</span></div><div className="sentinel-pulse pulse-one"/><div className="sentinel-pulse pulse-two"/>

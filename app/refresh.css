@@ -301,6 +301,123 @@ html[data-theme='dark'] .sentinel-solution { background: #1d2b3b; }
 .project-detail-footer svg { width: 18px; transition: transform .2s; }
 .project-detail-footer a:hover svg { transform: translateX(4px); }
 
+/* A tighter scale and rhythm across the main site. */
+.site-header { transition: box-shadow .28s ease, background .28s ease; }
+.site-header.is-scrolled { box-shadow: 0 12px 32px color-mix(in srgb, var(--ink) 8%, transparent); background: color-mix(in srgb, var(--canvas) 96%, transparent); }
+.site-header-inner { height: 70px; }
+.desktop-nav { gap: 2px; padding: 5px; border: 1px solid var(--line); border-radius: 99px; background: var(--surface); box-shadow: 0 3px 15px color-mix(in srgb, var(--ink) 4%, transparent); }
+.desktop-nav a { padding: 8px 15px; border: 0; border-radius: 99px; transition: color .2s ease, background .2s ease; }
+.desktop-nav a:hover, .desktop-nav a.is-active { border: 0; background: var(--blue-soft); color: var(--blue); }
+.header-contact { padding: 10px 15px; border: 1px solid #246bfd; border-radius: 99px; background: #246bfd; color: #fff; transition: color .2s, background .2s, transform .2s; }
+.header-contact:hover { color: #fff; background: #1558e5; transform: translateY(-2px); }
+.new-hero { grid-template-columns: 1.1fr .9fr; align-items: start; min-height: clamp(590px, 85svh, 710px); padding-top: 58px; padding-bottom: 56px; }
+.new-hero h1 { font-size: clamp(52px, 5vw, 72px); }
+.new-hero h1 em { display: block; white-space: nowrap; }
+.hero-intro { margin-top: 24px; }
+.hero-links { margin-top: 27px; }
+.hero-system { min-height: 470px; }
+.statement-section { padding: clamp(70px, 8vw, 105px) 0; }
+.statement-inner h2 { font-size: clamp(33px, 3.6vw, 52px); }
+.chapter-head h2, .labs-band h2, .ai-band h2 { font-size: clamp(37px, 4vw, 59px); }
+.labs-band-inner, .ai-band-inner { min-height: 500px; padding-top: 65px; padding-bottom: 65px; }
+.labs-graphic { min-height: 360px; }
+.ai-signal { height: 260px; }
+.final-invite { padding-top: clamp(70px, 8vw, 105px); padding-bottom: clamp(70px, 8vw, 105px); }
+.final-invite h2 { font-size: clamp(36px, 4.2vw, 60px); }
+.inner-hero { padding-top: clamp(48px, 6vw, 74px); padding-bottom: clamp(42px, 5vw, 65px); }
+.inner-hero h1 { font-size: clamp(47px, 5.2vw, 74px); }
+.product-list { display: grid; gap: 24px; padding-top: 30px; padding-bottom: 75px; }
+.portfolio-card { gap: 4vw; padding: clamp(27px, 3.5vw, 46px); transition: box-shadow .35s ease, border-color .35s ease, transform .35s ease; }
+.portfolio-card:hover { border-color: color-mix(in srgb, var(--blue) 40%, var(--line)); box-shadow: 0 18px 46px color-mix(in srgb, var(--ink) 9%, transparent); }
+.portfolio-copy h2 { font-size: clamp(37px, 3.8vw, 57px); }
+.portfolio-subtitle { font-size: clamp(20px, 1.8vw, 25px); }
+.product-showcase { scroll-margin-top: 95px; }
+.product-showcase .product-schematic { min-height: 350px; }
+.product-showcase .tutor-concept { min-height: 350px; }
+.electrical-portfolio { color: #fff; border-color: #284e81; background: radial-gradient(circle at 85% 10%, #235aa0 0, #163965 42%, #0f2648 100%); }
+.electrical-portfolio .portfolio-description { color: #d1e3f5; }
+.electrical-portfolio .portfolio-tags li { color: #d8e8f8; border-color: #5980ac; }
+.electrical-portfolio .row-link, .electrical-portfolio .showcase-secondary { color: #fff; }
+.electrical-portfolio .status-line { color: #a9f0d7; }
+.electrical-portfolio .product-schematic { border-color: #6b9dd2; background: radial-gradient(circle at 75% 10%, #3b75b4, #122c51 63%); box-shadow: 0 24px 45px #071b3655; }
+.electrical-portfolio .schematic-steps span { border-color: #78a4d3; color: #c7def6; }
+.electrical-portfolio .schematic-steps strong { color: #fff; }
+.tutor-portfolio { background: linear-gradient(130deg, var(--surface) 10%, var(--blue-soft)); }
+.showcase-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 26px; }
+.showcase-secondary { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; text-decoration: underline; text-underline-offset: 5px; }
+.showcase-secondary svg { width: 17px; height: 17px; transition: transform .2s ease; }
+.showcase-secondary:hover svg { transform: translate(3px, -2px); }
+.product-end-note { padding-top: 15px; }
+.ai-project-list { padding-top: 16px; padding-bottom: 65px; }
+.lab-process { padding: 68px 0; }
+.lab-process h2, .study-intro h2, .ai-principles h2, .about-story h2 { font-size: clamp(35px, 3.7vw, 53px); }
+.study-section { padding-top: 75px; padding-bottom: 85px; }
+.ai-principles, .about-story { padding-top: 80px; padding-bottom: 80px; }
+.about-story > div { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: 0 7vw; max-width: none; margin-left: 0; }
+.about-story h2 { grid-row: 1 / span 2; }
+.about-story p { grid-column: 2; margin-top: 0; }
+.about-path { padding-bottom: 90px; }
+.contact-new { min-height: 0; padding-top: 85px; padding-bottom: 95px; }
+.contact-new h1 { font-size: clamp(48px, 5vw, 72px); }
+.detail-hero { padding-top: 58px; padding-bottom: 75px; }
+.detail-back { margin-bottom: 43px; }
+.detail-hero h1 { font-size: clamp(47px, 5.2vw, 74px); }
+.detail-tools { padding-top: 82px; padding-bottom: 82px; }
+.detail-tools h2, .detail-note h2 { font-size: clamp(36px, 4vw, 55px); }
+.detail-note { margin-bottom: 85px; }
+.project-detail-hero { padding-top: 72px; padding-bottom: 82px; }
+.project-detail-intro h1 { font-size: clamp(51px, 5.5vw, 78px); }
+.project-detail-subtitle { font-size: clamp(23px, 2.3vw, 31px); }
+.project-story { padding-top: 72px; padding-bottom: 72px; }
+.project-story h2, .project-solution h2, .project-status h2 { font-size: clamp(33px, 3.4vw, 49px); }
+.project-solution { padding: 78px 0; }
+.project-status { padding-top: 45px; padding-bottom: 72px; }
+.project-status h2 { font-size: clamp(31px, 2.8vw, 39px); }
+.project-detail-footer { padding-bottom: 75px; }
+
+/* Three section bands use the same text/visual rhythm and distinct palettes. */
+.products-band { overflow: hidden; background: var(--blue-soft); }
+.products-band-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: 35px 8vw; align-items: center; padding-top: 68px; padding-bottom: 44px; }
+.products-band-copy h2, .home-product-heading h2 { margin: 0; font-size: clamp(37px, 4vw, 59px); line-height: 1.08; letter-spacing: -.06em; }
+.products-band-copy p { max-width: 540px; margin: 20px 0 24px; color: var(--ink-muted); font-size: 19px; }
+.products-band-copy .row-link { color: var(--blue); }
+.products-motion { position: relative; width: min(100%, 420px); aspect-ratio: 1; justify-self: center; }
+.products-motion-ring { position: absolute; inset: 12%; border: 1px solid color-mix(in srgb, var(--blue) 38%, transparent); border-radius: 50%; animation: product-ring 12s linear infinite; }
+.products-motion-ring.ring-b { inset: 27%; border-style: dashed; animation-duration: 9s; animation-direction: reverse; }
+.products-motion-core { position: absolute; inset: 36%; display: grid; place-items: center; border-radius: 26%; background: var(--blue); box-shadow: 0 25px 50px color-mix(in srgb, var(--blue) 35%, transparent); transform: rotate(-12deg); animation: product-core 6s ease-in-out infinite; }
+.products-motion-core i { width: 45%; height: 45%; border: 5px solid #fff; border-radius: 20%; }
+.products-motion-dot { position: absolute; width: 16px; height: 16px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 9px color-mix(in srgb, var(--blue) 13%, transparent); animation: satellite-float 5s ease-in-out infinite; }
+.products-motion-dot.dot-a { top: 17%; left: 29%; }
+.products-motion-dot.dot-b { right: 16%; bottom: 21%; width: 11px; height: 11px; animation-delay: -2s; }
+.products-quick-links { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(2, 1fr); gap: 18px; border-top: 1px solid color-mix(in srgb, var(--blue) 24%, var(--line)); }
+.products-quick-links a { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 21px 0; border-bottom: 1px solid color-mix(in srgb, var(--blue) 24%, var(--line)); font-size: 18px; font-weight: 650; transition: color .25s ease, padding .25s ease; }
+.products-quick-links a:hover { color: var(--blue); padding-left: 8px; }
+.products-quick-links a span:last-child { display: inline-flex; align-items: center; gap: 7px; color: var(--ink-muted); font-size: 14px; font-weight: 500; white-space: nowrap; }
+.products-quick-links svg { width: 16px; height: 16px; }
+.home-product-details { padding-top: 65px; padding-bottom: 75px; scroll-margin-top: 85px; }
+.home-product-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 35px; margin-bottom: 30px; }
+.home-product-heading p { max-width: 525px; margin: 0; color: var(--ink-muted); font-size: 18px; }
+.home-product-list { display: grid; gap: 24px; }
+.home-product-details .section-exit { margin-top: 25px; }
+.motion-ready .product-showcase.is-visible .product-schematic { animation: schematic-enter .8s .12s both; }
+.motion-ready .product-showcase.is-visible .tutor-concept { animation: tutor-enter .85s .12s both; }
+.product-showcase .schematic-rule { overflow: hidden; }
+.product-showcase .schematic-rule::after { position: absolute; inset: 0; width: 27%; background: #fff9; box-shadow: 0 0 20px #fff; content: ""; animation: rule-sweep 3.5s ease-in-out infinite; }
+.product-showcase .tutor-concept-rows i { animation: row-breathe 3s ease-in-out infinite; }
+.product-showcase .tutor-concept-rows i:nth-child(2) { animation-delay: -.5s; }
+.product-showcase .tutor-concept-rows i:nth-child(3) { animation-delay: -1s; }
+.product-showcase .tutor-concept-rows i:nth-child(4) { animation-delay: -1.5s; }
+.labs-graphic .lab-wire { animation: wire-glow 3s ease-in-out infinite alternate; }
+.labs-graphic .wire-b { animation-delay: -1.5s; }
+
+@keyframes product-ring { to { transform: rotate(360deg); } }
+@keyframes product-core { 50% { transform: translateY(-12px) rotate(-6deg); } }
+@keyframes schematic-enter { from { opacity: .35; transform: translateY(26px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes tutor-enter { from { opacity: .35; transform: translateY(26px) rotate(5deg); } to { opacity: 1; transform: translateY(0) rotate(2deg); } }
+@keyframes rule-sweep { 0%, 15% { transform: translateX(-120%); opacity: 0; } 35% { opacity: .8; } 80%, 100% { transform: translateX(480%); opacity: 0; } }
+@keyframes row-breathe { 50% { background: #d0e0f7; } }
+@keyframes wire-glow { to { opacity: .45; } }
+
 @keyframes rise-in { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes core-float { 50% { transform: translate(-50%, -53%) rotate(-8deg); } }
 @keyframes orbit-breathe { 50% { transform: translate(-50%, -50%) scale(1.04); opacity: .65; } }
@@ -433,8 +550,62 @@ html[data-theme='dark'] .sentinel-solution { background: #1d2b3b; }
   .project-status { grid-template-columns: 1fr; gap: 30px; padding-bottom: 75px; }
   .project-detail-footer { flex-direction: column; padding-bottom: 80px; }
 }
+@media (max-width: 900px) {
+  .new-hero { grid-template-columns: 1fr; min-height: 0; padding-top: 48px; }
+  .new-hero h1 em { white-space: normal; }
+  .products-band-inner { grid-template-columns: 1fr; gap: 15px; padding-top: 60px; }
+  .products-motion { width: min(75%, 310px); }
+  .home-product-heading { align-items: flex-start; flex-direction: column; gap: 15px; }
+  .about-story > div { grid-template-columns: 1fr; gap: 20px; }
+  .about-story h2 { grid-row: auto; }
+  .about-story p { grid-column: 1; }
+}
+@media (max-width: 650px) {
+  .new-hero { padding-top: 35px; padding-bottom: 70px; }
+  .new-hero h1 { font-size: clamp(44px, 11vw, 58px); }
+  .hero-system { width: min(100%, 390px); }
+  .statement-section { padding: 60px 0; }
+  .statement-inner h2 { font-size: 35px; }
+  .products-band-inner { padding-top: 55px; padding-bottom: 24px; }
+  .products-band-copy h2, .home-product-heading h2, .labs-band h2, .ai-band h2 { font-size: 38px; }
+  .products-band-copy p { font-size: 17px; }
+  .products-motion { width: min(75%, 280px); }
+  .products-quick-links { grid-template-columns: 1fr; gap: 0; }
+  .products-quick-links a { font-size: 16px; }
+  .products-quick-links a span:last-child { font-size: 12px; }
+  .labs-band-inner, .ai-band-inner { padding-top: 65px; padding-bottom: 65px; }
+  .labs-graphic { min-height: 275px; }
+  .ai-signal { height: 220px; }
+  .home-product-details { padding-top: 65px; padding-bottom: 65px; }
+  .home-product-heading p { font-size: 16px; }
+  .portfolio-card { padding: 23px; }
+  .portfolio-copy h2 { font-size: 42px; }
+  .portfolio-subtitle { font-size: 21px; }
+  .product-showcase .product-schematic, .product-showcase .tutor-concept { min-height: 280px; }
+  .product-list { padding-top: 22px; padding-bottom: 65px; }
+  .inner-hero { padding-top: 55px; padding-bottom: 60px; }
+  .inner-hero h1 { font-size: 44px; }
+  .lab-process { padding: 58px 0; }
+  .lab-process h2, .study-intro h2, .ai-principles h2, .about-story h2 { font-size: 37px; }
+  .study-section { padding-top: 65px; padding-bottom: 65px; }
+  .ai-principles, .about-story { padding-top: 65px; padding-bottom: 65px; }
+  .final-invite { padding-top: 65px; padding-bottom: 65px; }
+  .final-invite h2 { font-size: 39px; }
+  .contact-new { padding-top: 65px; padding-bottom: 70px; }
+  .contact-new h1, .detail-hero h1 { font-size: 44px; }
+  .detail-hero { padding-top: 50px; padding-bottom: 60px; }
+  .detail-tools { padding-top: 65px; padding-bottom: 65px; }
+  .project-detail-hero { padding-top: 55px; padding-bottom: 65px; }
+  .project-detail-intro h1 { font-size: 50px; }
+  .project-detail-subtitle { font-size: 23px; }
+  .project-story, .project-solution { padding-top: 62px; padding-bottom: 62px; }
+  .project-story h2, .project-solution h2, .project-status h2 { font-size: 35px; }
+  .project-status { padding-bottom: 60px; }
+  .project-detail-footer { padding-bottom: 60px; }
+}
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1; transform: none; transition: none; }
   .new-hero-copy, .hero-system, .hero-core, .hero-orbit, .hero-satellite, .lab-node, .ai-signal span, .sentinel-ring, .sentinel-pulse { animation: none !important; }
   .scroll-progress { display: none; }
+  .products-motion-ring, .products-motion-core, .products-motion-dot, .product-showcase .product-schematic, .product-showcase .tutor-concept, .product-showcase .schematic-rule::after, .product-showcase .tutor-concept-rows i, .labs-graphic .lab-wire { animation: none !important; }
 }

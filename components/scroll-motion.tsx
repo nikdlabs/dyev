@@ -29,6 +29,7 @@ export function ScrollMotion() {
         const height = document.documentElement.scrollHeight - window.innerHeight;
         document.documentElement.style.setProperty("--scroll-progress", String(height > 0 ? window.scrollY / height : 0));
         document.documentElement.style.setProperty("--scroll-y", String(window.scrollY));
+        document.querySelector(".site-header")?.classList.toggle("is-scrolled", window.scrollY > 12);
       });
     };
     update();
