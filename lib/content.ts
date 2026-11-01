@@ -16,7 +16,7 @@ export type Article = { slug: string; category: string; title: string; descripti
 
 export const products: Product[] = [
   { slug: "electricaldyev", name: "Electrical.Dyev", status: "Live", category: "Engineering", summary: "Electrical calculators for early checks and review.", description: "Focused calculators that show their inputs and working.", href: "https://electrical.dyev.in/" },
-  { slug: "tutor-board", name: "Tutor Board", status: "In development", category: "Learning", summary: "A learning project in progress.", description: "More details will be shared when the project is ready." },
+  { slug: "tutor-board", name: "Tutor Board", status: "In development", category: "EdTech", summary: "Education management for independent tutors and coaching centres.", description: "A subscription platform in development for managing students, batches, attendance, fees, assessments, homework, and parent updates." },
 ];
 
 export const labEntries: LabEntry[] = [

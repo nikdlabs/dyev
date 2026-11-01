@@ -11,9 +11,8 @@ export function ElectricalPreview() {
 }
 
 export function ProductCard({ product }: { product: Product }) {
-  const href = product.slug === "electricaldyev" ? "/products/electricaldyev/" : "/lab/";
-  const label = product.slug === "electricaldyev" ? "Explore product" : "View in the Lab";
-  return <article className={`product-card ${product.slug === "electricaldyev" ? "product-card-electrical" : ""}`}><div className="product-card-top"><StatusBadge status={product.status} /><span>{product.category}</span></div><Link href={href} className="card-visual-link" aria-label={`View ${product.name}`}>{product.slug === "electricaldyev" ? <ElectricalPreview /> : <div className="abstract-panel"><span>{product.slug === "boq-workspace" ? "01 / scope → quantity → estimate" : "Ideas in progress"}</span></div>}</Link><h2><Link href={href}>{product.name}</Link></h2><p>{product.summary}</p><Link href={href} className="text-link">{label}<ArrowRight aria-hidden="true" /></Link></article>;
+  const href = product.slug === "electricaldyev" ? "/products/electricaldyev/" : product.slug === "tutor-board" ? "/products/tutor-board/" : "/lab/";
+  return <article className={`product-card ${product.slug === "electricaldyev" ? "product-card-electrical" : ""}`}><div className="product-card-top"><StatusBadge status={product.status} /><span>{product.category}</span></div><Link href={href} className="card-visual-link" aria-label={`View ${product.name}`}>{product.slug === "electricaldyev" ? <ElectricalPreview /> : <div className="abstract-panel"><span>Tutor Board</span></div>}</Link><h2><Link href={href}>{product.name}</Link></h2><p>{product.summary}</p><Link href={href} className="text-link">Explore project<ArrowRight aria-hidden="true" /></Link></article>;
 }
 
 export function ArticleCard({ article, compact = false }: { article: Article; compact?: boolean }) {

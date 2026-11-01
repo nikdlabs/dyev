@@ -21,7 +21,7 @@ The main navigation follows that journey: Products & Solutions, Dyev Labs, AI, A
 ## Visual system
 
 - Keep the existing off-white, charcoal, and cobalt-blue palette.
-- Use one main headline and one supporting paragraph at each page entry.
+- Use one main headline and one supporting paragraph at each page entry. Avoid small labels above headings.
 - Body text is 17–21px in the main presentation. Small text is reserved for navigation and short labels.
 - Build page rhythm with open space, rules, bands, and diagrams. Product rows carry the work without repeating cards.
 
@@ -35,4 +35,4 @@ The main navigation follows that journey: Products & Solutions, Dyev Labs, AI, A
 
 ## Follow-up content
 
-Tutor Board and Sentinal are intentionally described as in development. Replace their short descriptions with verified details, screenshots, and working links when those projects are ready to share.
+Tutor Board is described as in development and product validation. Sentinel is described as a concept in early development. Their project pages distinguish planned capabilities from shipped features. Add verified screenshots, repositories, and working links only when those projects are ready to share.

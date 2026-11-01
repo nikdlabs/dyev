@@ -1,14 +1,27 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { SentinelIllustration } from "@/components/project-illustrations";
 
-export const metadata: Metadata = { title: "AI at Dyev", description: "Explore the AI ideas and solutions Dyev is building, including Sentinal.", alternates: { canonical: "/ai/" } };
+export const metadata: Metadata = { title: "AI at Dyev", description: "Explore Sentinel, an early AI project for evidence-based incident investigation.", alternates: { canonical: "/ai/" } };
 
 export default function AIPage() {
   return <>
-    <section className="inner-hero ai-inner-hero shell" data-reveal><p className="section-kicker">AI at Dyev</p><h1>AI that helps with a real task.</h1><p>We are building and testing AI ideas at Dyev. This space will show what each project is for, where it stands, and what is ready to use.</p></section>
-    <section className="ai-feature-wrap"><div className="shell ai-feature" data-reveal><div><span className="status-line status-building"><i /> In development</span><h2>Sentinal</h2><p>An AI project in progress. We’ll share what it does, how it works, and when it is available as the project develops.</p><Link className="row-link" href="/contact/">Ask about Sentinal <ArrowUpRight aria-hidden="true" /></Link></div><div className="sentinal-visual" aria-hidden="true"><div className="sentinal-ring ring-one"/><div className="sentinal-ring ring-two"/><div className="sentinal-center"><span>S</span></div><div className="sentinal-pulse pulse-one"/><div className="sentinal-pulse pulse-two"/></div></div></section>
-    <section className="ai-principles shell" data-reveal><div><p className="section-kicker">Our approach</p><h2>A clear purpose comes first.</h2></div><div className="ai-principle-lines"><p><strong>Start with the task.</strong> Understand what a person needs help with.</p><p><strong>Check the output.</strong> Make room for review and correction.</p><p><strong>Explain the stage.</strong> Say whether an idea is being tested or ready to use.</p></div></section>
-    <section className="final-invite shell" data-reveal><div><p className="section-kicker">Stay in touch</p><h2>Interested in our AI work?</h2><p>We’re happy to hear about a problem you think AI could help with.</p></div><Link className="button button-primary" href="/contact/">Contact Dyev <ArrowRight aria-hidden="true" /></Link></section>
+    <section className="inner-hero ai-inner-hero shell" data-reveal><h1>AI at Dyev</h1><p>I am exploring how AI can help engineers investigate application failures. Sentinel is the first project in this area, with payment and external API failures as its initial focus.</p></section>
+    <section className="ai-project-list shell">
+      <article className="portfolio-card sentinel-portfolio" data-reveal>
+        <div className="portfolio-copy">
+          <h2>Sentinel</h2>
+          <p className="portfolio-subtitle">An AI assistant for incident investigation.</p>
+          <span className="status-line status-building"><i /> Concept · early development</span>
+          <p className="portfolio-description">Sentinel is planned to help engineering teams follow evidence across logs, failed requests, and provider responses. Its goal is to identify a probable cause and produce a report that people can review.</p>
+          <ul className="portfolio-tags" aria-label="Project categories"><li>Applied AI</li><li>Python</li><li>Developer tools</li></ul>
+          <Link className="row-link" href="/ai/sentinel/">Explore project <ArrowUpRight aria-hidden="true" /></Link>
+        </div>
+        <SentinelIllustration />
+      </article>
+    </section>
+    <section className="ai-principles shell" data-reveal><div><h2>How I approach AI work</h2><p>AI should help with a specific task and give people enough evidence to check its conclusions.</p></div><div className="ai-principle-lines"><p><strong>Begin with the failure.</strong> Identify what happened and what the engineer needs to know.</p><p><strong>Follow the evidence.</strong> Use logs, API responses, and context to guide each next step.</p><p><strong>Show the reasoning.</strong> Present a likely cause with supporting evidence and suggested next actions.</p></div></section>
+    <section className="final-invite shell" data-reveal><div><h2>Investigating a difficult failure?</h2><p>Tell me what makes it hard to trace. I am interested in real incident workflows as this project develops.</p></div><Link className="button button-primary" href="/contact/">Contact Dyev <ArrowRight aria-hidden="true" /></Link></section>
   </>;
 }
