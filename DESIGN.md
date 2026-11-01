@@ -33,7 +33,7 @@ The main navigation follows that journey: Products & Solutions, Dyev Labs, AI, A
 - Continuity: a thin progress line at the top of the viewport.
 - Identity: slow motion in the hero mark and the Products, Labs, and AI diagrams.
 - Product detail: a moving calculation line and subtle dashboard activity in the project illustrations.
-- Header: a compact navigation pill and a soft shadow after scrolling.
+- Header: open navigation at the top of a page that condenses into a floating capsule after scrolling. The capsule carries page progress and a compact contact action. Mobile uses the same change of state and an expanded navigation panel.
 - Interaction: small movement on links and buttons.
 - Respect `prefers-reduced-motion`; all content remains available without animation or JavaScript.
 

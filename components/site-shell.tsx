@@ -28,6 +28,8 @@ function ThemeToggle() {
 
 function Wordmark() { return <Link className="wordmark" href="/" aria-label="Dyev home">Dyev<span aria-hidden="true" /></Link>; }
 
+function HeaderBrand() { return <Link className="header-brand" href="/" aria-label="Dyev home"><span className="header-brand-symbol" aria-hidden="true"><span>D</span><i /></span><span className="header-brand-name">Dyev</span></Link>; }
+
 export function CopyEmail() {
   const [copied, setCopied] = useState(false);
   async function copy() { try { await navigator.clipboard.writeText("hello@dyev.in"); setCopied(true); window.setTimeout(() => setCopied(false), 1800); } catch { window.location.href = "mailto:hello@dyev.in"; } }
@@ -39,16 +41,17 @@ export function SiteShell({ children }: { children: ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => { setMenuOpen(false); }, [path]);
   useEffect(() => { document.body.classList.toggle("menu-open", menuOpen); return () => document.body.classList.remove("menu-open"); }, [menuOpen]);
+  useEffect(() => { if (!menuOpen) return; const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") setMenuOpen(false); }; window.addEventListener("keydown", closeOnEscape); return () => window.removeEventListener("keydown", closeOnEscape); }, [menuOpen]);
 
   return <>
     <ScrollMotion />
-    <div className="scroll-progress" aria-hidden="true" />
-    <header className="site-header"><div className="site-header-inner">
-      <Wordmark />
-      <nav className="desktop-nav" aria-label="Primary navigation">{navigation.map((item) => <Link key={item.href} href={item.href} className={path.startsWith(item.href) ? "is-active" : ""}>{item.label}</Link>)}</nav>
-      <div className="header-actions"><ThemeToggle /><Link className="header-contact" href="/contact/">Get in touch <ArrowUpRight aria-hidden="true" /></Link><button type="button" className="menu-button" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button></div>
+    <header className={"site-header" + (menuOpen ? " menu-open" : "")}><div className="site-header-inner">
+      <HeaderBrand />
+      <nav className="desktop-nav" aria-label="Primary navigation">{navigation.map((item) => <Link key={item.href} href={item.href} className={path.startsWith(item.href) ? "is-active" : ""} aria-current={path.startsWith(item.href) ? "page" : undefined}>{item.label}</Link>)}</nav>
+      <div className="header-actions"><ThemeToggle /><Link className="header-contact" href="/contact/" aria-label="Get in touch"><span>Get in touch</span><ArrowUpRight aria-hidden="true" /></Link><button type="button" className="menu-button" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button></div>
+      <span className="header-progress" aria-hidden="true"><i /></span>
     </div></header>
-    <div id="mobile-navigation" className={"mobile-sheet " + (menuOpen ? "is-open" : "")} aria-hidden={!menuOpen}><nav aria-label="Mobile navigation">{navigation.map((item) => <Link key={item.href} href={item.href} tabIndex={menuOpen ? 0 : -1}>{item.label}<ArrowUpRight aria-hidden="true" /></Link>)}<Link href="/contact/" tabIndex={menuOpen ? 0 : -1}>Contact<ArrowUpRight aria-hidden="true" /></Link></nav></div>
+    <div id="mobile-navigation" className={"mobile-sheet " + (menuOpen ? "is-open" : "")} aria-hidden={!menuOpen}><nav aria-label="Mobile navigation">{navigation.map((item) => <Link key={item.href} href={item.href} tabIndex={menuOpen ? 0 : -1} aria-current={path.startsWith(item.href) ? "page" : undefined}>{item.label}<ArrowUpRight aria-hidden="true" /></Link>)}<Link href="/contact/" tabIndex={menuOpen ? 0 : -1} aria-current={path.startsWith("/contact/") ? "page" : undefined}>Contact<ArrowUpRight aria-hidden="true" /></Link></nav><div className="mobile-sheet-footer"><p>Useful tools. Clear ideas. Better ways to work.</p><a href="mailto:hello@dyev.in" tabIndex={menuOpen ? 0 : -1}>hello@dyev.in <ArrowUpRight aria-hidden="true" /></a></div></div>
     <main>{children}</main>
     <footer className="site-footer"><div className="footer-grid">
       <div className="footer-brand"><Wordmark /><p>Useful tools. Clear ideas. Better ways to work.</p></div>
