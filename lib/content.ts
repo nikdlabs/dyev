@@ -15,15 +15,14 @@ export type ArticleBlock = { type: "heading" | "paragraph" | "quote" | "callout"
 export type Article = { slug: string; category: string; title: string; description: string; publishedAt: string; image: string; imageAlt: string; relatedProduct?: boolean; blocks: ArticleBlock[] };
 
 export const products: Product[] = [
-  { slug: "electricaldyev", name: "Electrical.Dyev", status: "Live", category: "Engineering", summary: "Transparent electrical calculation tools for preliminary engineering workflows.", description: "Practical calculators, supporting articles, and a browser-private project workspace designed for transparent, traceable workflows.", href: "https://electrical.dyev.in/" },
-  { slug: "boq-workspace", name: "BOQ / Estimation Workspace", status: "In development", category: "Workflows", summary: "Structured quantity, scope, and estimation workflows for project teams.", description: "A product study into clearer project information, quantity, and scope workflows. It is not yet a released product." },
-  { slug: "product-lab", name: "Product Lab", status: "Exploring", category: "Experiments", summary: "Prototypes, studies, and practical questions in progress.", description: "A place to examine early product ideas before they are ready to become standalone tools." },
+  { slug: "electricaldyev", name: "Electrical.Dyev", status: "Live", category: "Engineering", summary: "Electrical calculators for early checks and review.", description: "Focused calculators that show their inputs and working.", href: "https://electrical.dyev.in/" },
+  { slug: "tutor-board", name: "Tutor Board", status: "In development", category: "Learning", summary: "A learning project in progress.", description: "More details will be shared when the project is ready." },
 ];
 
 export const labEntries: LabEntry[] = [
-  { status: "Exploring", code: "LAB-01", title: "Clearer BOQ workflows", description: "A study of how project information can move from drawing to estimate with less ambiguity.", detail: "Structured scope and quantity" },
-  { status: "Prototype", code: "LAB-02", title: "A quieter project dashboard", description: "A concept for making project signals visible without turning work into a wall of notifications.", detail: "Focused project signals" },
-  { status: "Question", code: "LAB-03", title: "Where should a calculator stop?", description: "Exploring the boundary between a helpful preliminary tool and a decision that needs expert review.", detail: "Tool boundaries and accountability" },
+  { status: "Exploring", code: "LAB-01", title: "Clearer estimation work", description: "Exploring how project scope and quantities can be easier to organise and review.", detail: "Research" },
+  { status: "Prototype", code: "LAB-02", title: "A simpler project view", description: "Looking at ways to surface useful project information without adding more noise.", detail: "Early concept" },
+  { status: "Question", code: "LAB-03", title: "Better boundaries for tools", description: "Studying where a quick calculation helps and where expert review must take over.", detail: "Research" },
 ];
 
 export const articles: Article[] = [

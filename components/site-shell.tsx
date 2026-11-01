@@ -1,18 +1,29 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, MoonStar, SunMedium, X, ArrowUpRight, Copy, Check } from "lucide-react";
+import { ArrowUpRight, Check, Copy, Menu, MoonStar, SunMedium, X } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
+import { ScrollMotion } from "@/components/scroll-motion";
 
-const navigation = [{ href: "/products/", label: "Products" }, { href: "/articles/", label: "Articles" }, { href: "/lab/", label: "Lab" }, { href: "/about/", label: "About" }];
+const navigation = [
+  { href: "/products/", label: "Products & Solutions" },
+  { href: "/lab/", label: "Dyev Labs" },
+  { href: "/ai/", label: "AI" },
+  { href: "/about/", label: "About" },
+];
 
 function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   useEffect(() => { setTheme(document.documentElement.dataset.theme === "dark" ? "dark" : "light"); }, []);
-  function change(next: "light" | "dark") { setTheme(next); document.documentElement.dataset.theme = next; document.documentElement.style.colorScheme = next; localStorage.setItem("dyev-theme", next); }
-  const nextTheme = theme === "light" ? "dark" : "light";
-  return <div className="theme-toggle"><button className="theme-icon-button" type="button" onClick={() => change(nextTheme)} aria-label={`Switch to ${nextTheme} theme`}>{theme === "light" ? <MoonStar aria-hidden="true" /> : <SunMedium aria-hidden="true" />}</button></div>;
+  function change() {
+    const next = theme === "light" ? "dark" : "light";
+    setTheme(next);
+    document.documentElement.dataset.theme = next;
+    document.documentElement.style.colorScheme = next;
+    localStorage.setItem("dyev-theme", next);
+  }
+  return <button className="theme-icon-button" type="button" onClick={change} aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}>{theme === "light" ? <MoonStar aria-hidden="true" /> : <SunMedium aria-hidden="true" />}</button>;
 }
 
 function Wordmark() { return <Link className="wordmark" href="/" aria-label="Dyev home">Dyev<span aria-hidden="true" /></Link>; }
@@ -24,10 +35,25 @@ export function CopyEmail() {
 }
 
 export function SiteShell({ children }: { children: ReactNode }) {
-  const path = usePathname(); const [menuOpen, setMenuOpen] = useState(false);
+  const path = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => { setMenuOpen(false); }, [path]);
   useEffect(() => { document.body.classList.toggle("menu-open", menuOpen); return () => document.body.classList.remove("menu-open"); }, [menuOpen]);
-  return <><header className="site-header"><div className="site-header-inner"><Wordmark /><nav className="desktop-nav" aria-label="Primary navigation">{navigation.map((item) => <Link key={item.href} href={item.href} className={path.startsWith(item.href) ? "is-active" : ""}>{item.label}</Link>)}</nav><div className="header-actions"><ThemeToggle /><Link className="button button-primary header-cta" href="/products/">Explore work <ArrowUpRight aria-hidden="true" /></Link><button type="button" className="menu-button" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button></div></div></header>
-  <div className={`mobile-sheet ${menuOpen ? "is-open" : ""}`} aria-hidden={!menuOpen}><div><p className="eyebrow">Navigate Dyev</p><nav aria-label="Mobile navigation">{navigation.map((item) => <Link key={item.href} href={item.href}>{item.label}<ArrowUpRight aria-hidden="true" /></Link>)}</nav><Link className="button button-primary mobile-work" href="/products/">Explore our work <ArrowUpRight aria-hidden="true" /></Link><div className="mobile-contact"><p>Have a useful problem in mind?</p><a href="mailto:hello@dyev.in">hello@dyev.in</a></div></div></div>
-  <main>{children}</main><footer className="site-footer"><div className="footer-grid"><section><Wordmark /><p className="footer-statement">Build with clarity. Work with confidence.</p><p className="footer-copy">Independent product studio creating practical tools, software products, and experiments.</p></section><nav aria-label="Footer explore"><h2>Explore</h2><Link href="/products/">Products</Link><Link href="/articles/">Articles</Link><Link href="/lab/">Lab</Link><Link href="/about/">About</Link></nav><nav aria-label="Footer products"><h2>Products</h2><Link href="/products/electricaldyev/">Electrical.Dyev</Link><Link href="/products/">Product studies</Link></nav><section><h2>Connect</h2><a href="mailto:hello@dyev.in">hello@dyev.in</a><Link href="/contact/">Contact</Link></section></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Dyev. Independent product studio.</span><span><Link href="/privacy/">Privacy</Link><Link href="/terms/">Terms</Link><Link href="/disclaimer/">Disclaimer</Link></span></div></footer></>;
+
+  return <>
+    <ScrollMotion />
+    <div className="scroll-progress" aria-hidden="true" />
+    <header className="site-header"><div className="site-header-inner">
+      <Wordmark />
+      <nav className="desktop-nav" aria-label="Primary navigation">{navigation.map((item) => <Link key={item.href} href={item.href} className={path.startsWith(item.href) ? "is-active" : ""}>{item.label}</Link>)}</nav>
+      <div className="header-actions"><ThemeToggle /><Link className="header-contact" href="/contact/">Get in touch <ArrowUpRight aria-hidden="true" /></Link><button type="button" className="menu-button" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button></div>
+    </div></header>
+    <div id="mobile-navigation" className={"mobile-sheet " + (menuOpen ? "is-open" : "")} aria-hidden={!menuOpen}><nav aria-label="Mobile navigation">{navigation.map((item) => <Link key={item.href} href={item.href} tabIndex={menuOpen ? 0 : -1}>{item.label}<ArrowUpRight aria-hidden="true" /></Link>)}<Link href="/contact/" tabIndex={menuOpen ? 0 : -1}>Contact<ArrowUpRight aria-hidden="true" /></Link></nav></div>
+    <main>{children}</main>
+    <footer className="site-footer"><div className="footer-grid">
+      <div className="footer-brand"><Wordmark /><p>Useful tools. Clear ideas. Better ways to work.</p></div>
+      <nav aria-label="Explore"><h2>Explore</h2><Link href="/products/">Products & Solutions</Link><Link href="/lab/">Dyev Labs</Link><Link href="/ai/">AI</Link><Link href="/about/">About</Link></nav>
+      <div className="footer-contact"><h2>Say hello</h2><a href="mailto:hello@dyev.in">hello@dyev.in <ArrowUpRight aria-hidden="true" /></a></div>
+    </div><div className="footer-bottom"><span>© {new Date().getFullYear()} Dyev</span><span><Link href="/privacy/">Privacy</Link><Link href="/terms/">Terms</Link><Link href="/disclaimer/">Disclaimer</Link></span></div></footer>
+  </>;
 }
