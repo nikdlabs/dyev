@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import styles from "./analytics-consent.module.css";
 
 const storageKey = "dyev-analytics-choice";
-type Choice = "loading" | "unset" | "accepted" | "declined";
+type Choice = "loading" | "unset" | "accepted" | "declined" | "disabled";
 
 function clearAnalyticsCookies() {
   for (const item of document.cookie.split(";")) {
@@ -20,6 +20,11 @@ export function AnalyticsConsent({ measurementId }: { measurementId: string }) {
   const [choice, setChoice] = useState<Choice>("loading");
 
   useEffect(() => {
+    // Keep this GA4 property exclusive to the main Dyev hostname.
+    if (window.location.hostname !== "dyev.in") {
+      setChoice("disabled");
+      return;
+    }
     try {
       const saved = localStorage.getItem(storageKey);
       setChoice(saved === "accepted" || saved === "declined" ? saved : "unset");
@@ -32,7 +37,7 @@ export function AnalyticsConsent({ measurementId }: { measurementId: string }) {
   }, []);
 
   useEffect(() => {
-    if (choice !== "accepted" || document.getElementById("dyev-google-analytics")) return;
+    if (window.location.hostname !== "dyev.in" || choice !== "accepted" || document.getElementById("dyev-google-analytics")) return;
 
     const analyticsWindow = window as typeof window & { dataLayer?: unknown[][]; gtag?: (...args: unknown[]) => void };
     analyticsWindow.dataLayer = analyticsWindow.dataLayer ?? [];
