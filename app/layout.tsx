@@ -3,8 +3,10 @@ import Script from "next/script";
 import "./globals.css";
 import "./refresh.css";
 import { SiteShell } from "@/components/site-shell";
+import { AnalyticsConsent } from "@/components/analytics-consent";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://dyev.in";
+const analyticsId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -24,5 +26,5 @@ const themeScript = `(() => { try { const theme = localStorage.getItem('dyev-the
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const websiteSchema = { "@context": "https://schema.org", "@type": "WebSite", name: "Dyev", url: siteUrl, description: "Software projects for engineering, education, and incident investigation." };
-  return <html lang="en" suppressHydrationWarning><head><Script id="dyev-theme" strategy="beforeInteractive">{themeScript}</Script><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} /></head><body><SiteShell>{children}</SiteShell></body></html>;
+  return <html lang="en" suppressHydrationWarning><head><Script id="dyev-theme" strategy="beforeInteractive">{themeScript}</Script><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} /></head><body><SiteShell>{children}</SiteShell>{analyticsId && /^G-[A-Z0-9]+$/.test(analyticsId) ? <AnalyticsConsent measurementId={analyticsId} /> : null}</body></html>;
 }
