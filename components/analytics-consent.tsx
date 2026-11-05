@@ -39,9 +39,11 @@ export function AnalyticsConsent({ measurementId }: { measurementId: string }) {
   useEffect(() => {
     if (window.location.hostname !== "dyev.in" || choice !== "accepted" || document.getElementById("dyev-google-analytics")) return;
 
-    const analyticsWindow = window as typeof window & { dataLayer?: unknown[][]; gtag?: (...args: unknown[]) => void };
+    const analyticsWindow = window as typeof window & { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void };
     analyticsWindow.dataLayer = analyticsWindow.dataLayer ?? [];
-    analyticsWindow.gtag = (...args: unknown[]) => analyticsWindow.dataLayer?.push(args);
+    analyticsWindow.gtag = function gtag(..._args: unknown[]) {
+      analyticsWindow.dataLayer?.push(arguments);
+    };
     analyticsWindow.gtag("consent", "default", {
       analytics_storage: "denied", ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied",
     });
