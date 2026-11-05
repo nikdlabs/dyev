@@ -16,6 +16,13 @@ function clearAnalyticsCookies() {
   }
 }
 
+function stopAnalytics() {
+  const analyticsWindow = window as typeof window & { gtag?: (...args: unknown[]) => void };
+  analyticsWindow.gtag?.("consent", "update", { analytics_storage: "denied" });
+  clearAnalyticsCookies();
+  window.location.reload();
+}
+
 export function AnalyticsConsent({ measurementId }: { measurementId: string }) {
   const [choice, setChoice] = useState<Choice>("loading");
 
@@ -32,8 +39,21 @@ export function AnalyticsConsent({ measurementId }: { measurementId: string }) {
       setChoice("unset");
     }
     const reopen = () => setChoice("unset");
+    const syncChoice = (event: StorageEvent) => {
+      if (event.key !== storageKey) return;
+      const next = event.newValue === "accepted" || event.newValue === "declined" ? event.newValue : "unset";
+      if (next !== "accepted" && document.getElementById("dyev-google-analytics")) {
+        stopAnalytics();
+        return;
+      }
+      setChoice(next);
+    };
     window.addEventListener("dyev:analytics-settings", reopen);
-    return () => window.removeEventListener("dyev:analytics-settings", reopen);
+    window.addEventListener("storage", syncChoice);
+    return () => {
+      window.removeEventListener("dyev:analytics-settings", reopen);
+      window.removeEventListener("storage", syncChoice);
+    };
   }, []);
 
   useEffect(() => {
@@ -61,10 +81,7 @@ export function AnalyticsConsent({ measurementId }: { measurementId: string }) {
   function choose(next: "accepted" | "declined") {
     try { localStorage.setItem(storageKey, next); } catch { /* Choice still applies to this visit. */ }
     if (next === "declined" && document.getElementById("dyev-google-analytics")) {
-      const analyticsWindow = window as typeof window & { gtag?: (...args: unknown[]) => void };
-      analyticsWindow.gtag?.("consent", "update", { analytics_storage: "denied" });
-      clearAnalyticsCookies();
-      window.location.reload();
+      stopAnalytics();
       return;
     }
     setChoice(next);
